@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html class="has-background-link has-text-white is-dark">
+
+<head>
+    <meta charset="utf-8">
+    <title>BitSwitch.io</title>
+	<meta name="keywords" content="exchange, crypto, altcoins, tokens, no kyc, no signup">
+	<link rel="canonical" href="https://www.bitswitch.io/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://www.bitswitch.io/assets/css/bulma.min.css">
+    <link rel="stylesheet" href="https://www.bitswitch.io/assets/css/common.css">
+    <link rel="stylesheet" href="https://www.bitswitch.io/assets/fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://www.bitswitch.io/assets/css/select2.min.css">
+        <script src="https://www.bitswitch.io/assets/js/jquery.min.js"></script>
+    <script src="https://www.bitswitch.io/assets/js/select2.min.js"></script>
+    <script src="https://www.bitswitch.io/assets/js/clipboard.min.js"></script>
+    <script src="https://www.bitswitch.io/assets/js/notify.js"></script>
+    
+    <script>
+        const site_root = "https://www.bitswitch.io/";
+    </script>
+    
+    <script src="https://www.bitswitch.io/assets/js/common.js?v=3"></script>
+    <link rel="manifest" href="https://www.bitswitch.io/manifest.webmanifest">
+    <link rel="icon" href="https://www.bitswitch.io/assets/img/app48.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://www.bitswitch.io/assets/img/app192.png">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WMWJX2XWHV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WMWJX2XWHV');
+</script>
+
+</head>
+<body>
+<nav class="navbar has-background-link has-text-white is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand"><section class="hero is-link">
+  <div class="hero-body">
+    <p class="title">
+      <a class="navbar-item has-text-white has-background-link" href="https://www.bitswitch.io/">
+		  <img src="assets/img/app48.png" class="img-txt"> BitSwitch.io
+	  </a>
+    </p>
+    <p class="subtitle">
+      Exchange your coins and tokens quickly without need of signup!    </p>
+  </div>
+</section>
+    <a role="button" id="navbar-burger" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbar-menu" class="navbar-menu">
+    <div class="navbar-start">
+    </div>
+
+    <div class="navbar-end">
+
+      <div class="navbar-item">
+       <div class="level" style="margin-bottom:auto">
+        <div class="level-item">
+          <div class="field has-addons">
+            <div class="dropdown" id="dropdown-menu" style="display: none">
+              <div class="dropdown-trigger">
+                <button class="button is-small  has-text-white has-background-link" aria-haspopup="true" aria-controls="dropdown-menu">
+                  <span class="icon is-small">
+                    <i class="fas fa-clock-rotate-left" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                </div>
+              </div>
+            </div>
+            <p class="control">
+              <input class="input is-small " value="" type="text" id="find_swap" placeholder="Exchange ID">
+            </p>
+            <p class="control">
+              <button class="button is-small  has-text-white has-background-link" id="view_swap">
+                Go
+              </button>
+            </p>
+          </div>
+        </div>
+       </div>
+      </div>
+        
+     <div class="navbar-item" style="margin-bottom:auto">
+        <div class="buttons">
+            <a class="button is-small has-text-white has-background-link is-fullwidth" href="https://www.bitswitch.io/support">
+            <strong>Support</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="page"><!--  class="has-background-link-light" -->
+<section class="section">
+<div class="columns">
+    <div class="column"></div>
+
+            <div class="box">
+                <div class="column">
+
+
+                            <nav class="level">
+                                <div class="level-item">
+                                    <div class="field has-addons">
+                                      <p class="control">
+                                        <input id="from_amount" class="input allownumericbtc has-text-right" type="text" placeholder="You send"  autocomplete="off">
+                                      </p>
+                                   <p class="control">
+                                      <div class="select">
+                                        <select id="from_coin" name="from_coin" data-placeholder="From">
+                                            <option value="">Select</option>
+                                                                                        <option selected value="BTC*Bitcoin" data-image="https://www.bitswitch.io/assets/coins/bitcoin-btc.png">Bitcoin (BTC)</option>
+                                                                                        <option  value="ETH*Ethereum" data-image="https://www.bitswitch.io/assets/coins/ethereum-eth.png">Ethereum (ETH)</option>
+                                                                                        <option  value="USDTERC20*Tether ERC20" data-image="https://www.bitswitch.io/assets/coins/tether-usdt.png">Tether ERC20 (USDT ERC20)</option>
+                                                                                        <option  value="EOS*EOS" data-image="https://www.bitswitch.io/assets/coins/eos-eos.png">EOS (EOS)</option>
+                                                                                        <option  value="USDTTRC20*Tether TRC20" data-image="https://www.bitswitch.io/assets/coins/tether-usdt.png">Tether TRC20 (USDT TRC20)</option>
+                                                                                        <option  value="SHIB*SHIBA INU" data-image="https://www.bitswitch.io/assets/coins/shibainu-shib.png">SHIBA INU (SHIB)</option>
+                                                                                        <option  value="DOGE*Dogecoin" data-image="https://www.bitswitch.io/assets/coins/dogecoin-doge.png">Dogecoin (DOGE)</option>
+                                                                                        <option  value="XMR*Monero" data-image="https://www.bitswitch.io/assets/coins/monero-xmr.png">Monero (XMR)</option>
+                                                                                        <option  value="TRX*TRON" data-image="https://www.bitswitch.io/assets/coins/tron-trx.png">TRON (TRX)</option>
+                                                                                        <option  value="HT*Huobi Token" data-image="https://www.bitswitch.io/assets/coins/huobitoken-ht.png">Huobi Token (HT)</option>
+                                                                                        <option  value="USDC*USD Coin" data-image="https://www.bitswitch.io/assets/coins/usdcoin-usdc.png">USD Coin (USDC)</option>
+                                                                                        <option  value="ZRX*0x" data-image="https://www.bitswitch.io/assets/coins/0x-zrx.png">0x (ZRX)</option>
+                                                                                        <option  value="AKITA*Akita Inu" data-image="https://www.bitswitch.io/assets/coins/akitainu-akita.png">Akita Inu (AKITA)</option>
+                                                                                        <option  value="IOTA*IOTA" data-image="https://www.bitswitch.io/assets/coins/iota-iota.png">IOTA (IOTA)</option>
+                                                                                        <option  value="LTC*Litecoin" data-image="https://www.bitswitch.io/assets/coins/litecoin-ltc.png">Litecoin (LTC)</option>
+                                                                                        <option  value="UNI*Uniswap" data-image="https://www.bitswitch.io/assets/coins/uniswap-uni.png">Uniswap (UNI)</option>
+                                                                                        <option  value="ALGO*Algorand" data-image="https://www.bitswitch.io/assets/coins/algorand-algo.png">Algorand (ALGO)</option>
+                                                                                        <option  value="SCRT*Secret" data-image="https://www.bitswitch.io/assets/coins/secret-scrt.png">Secret (SCRT)</option>
+                                                                                        <option  value="WBTC*Wrapped Bitcoin" data-image="https://www.bitswitch.io/assets/coins/wrappedbitcoin-wbtc.png">Wrapped Bitcoin (WBTC)</option>
+                                                                                        <option  value="YFI*yearn.finance" data-image="https://www.bitswitch.io/assets/coins/yearn.finance-yfi.png">yearn.finance (YFI)</option>
+                                                                                        <option  value="CHZ*Chiliz" data-image="https://www.bitswitch.io/assets/coins/chiliz-chz.png">Chiliz (CHZ)</option>
+                                                                                        <option  value="ATOM*Cosmos" data-image="https://www.bitswitch.io/assets/coins/cosmos-atom.png">Cosmos (ATOM)</option>
+                                                                                        <option  value="ELON*Dogelon Mars" data-image="https://www.bitswitch.io/assets/coins/dogelonmars-elon.png">Dogelon Mars (ELON)</option>
+                                                                                        <option  value="GODS*Gods Unchained" data-image="https://www.bitswitch.io/assets/coins/godsunchained-gods.png">Gods Unchained (GODS)</option>
+                                                                                        <option  value="KMD*Komodo" data-image="https://www.bitswitch.io/assets/coins/komodo-kmd.png">Komodo (KMD)</option>
+                                                                                        <option  value="MATIC*Polygon" data-image="https://www.bitswitch.io/assets/coins/polygon-matic.png">Polygon (MATIC)</option>
+                                                                                        <option  value="APE*ApeCoin" data-image="https://www.bitswitch.io/assets/coins/apecoin-ape.png">ApeCoin (APE)</option>
+                                                                                        <option  value="BNB*Binance Coin" data-image="https://www.bitswitch.io/assets/coins/binancecoin-bnb.png">Binance Coin (BNB)</option>
+                                                                                        <option  value="SOL*Solana" data-image="https://www.bitswitch.io/assets/coins/solana-sol.png">Solana (SOL)</option>
+                                                                                        <option  value="XLM*Stellar" data-image="https://www.bitswitch.io/assets/coins/stellar-xlm.png">Stellar (XLM)</option>
+                                                                                        <option  value="LUNA*Terra 2.0" data-image="https://www.bitswitch.io/assets/coins/terra2.0-luna.png">Terra 2.0 (LUNA)</option>
+                                                                                        <option  value="LEO*UNUS SED LEO" data-image="https://www.bitswitch.io/assets/coins/unussedleo-leo.png">UNUS SED LEO (LEO)</option>
+                                                                                        <option  value="USDCPOLY*USD Coin Polygon" data-image="https://www.bitswitch.io/assets/coins/usdcoin-usdc.png">USD Coin Polygon (USDC POLY)</option>
+                                                                                        <option  value="ZEC*Zcash" data-image="https://www.bitswitch.io/assets/coins/zcash-zec.png">Zcash (ZEC)</option>
+                                                                                        <option  value="BUSD*Binance USD" data-image="https://www.bitswitch.io/assets/coins/binanceusd-busd.png">Binance USD (BUSD)</option>
+                                                                                        <option  value="ADA*Cardano" data-image="https://www.bitswitch.io/assets/coins/cardano-ada.png">Cardano (ADA)</option>
+                                                                                        <option  value="COMP*Compound" data-image="https://www.bitswitch.io/assets/coins/compound-comp.png">Compound (COMP)</option>
+                                                                                        <option  value="DYDX*dYdX" data-image="https://www.bitswitch.io/assets/coins/dydx-dydx.png">dYdX (DYDX)</option>
+                                                                                        <option  value="ENS*Ethereum Name Service" data-image="https://www.bitswitch.io/assets/coins/ethereumnameservice-ens.png">Ethereum Name Service (ENS)</option>
+                                                                                        <option  value="FLUX*Flux" data-image="https://www.bitswitch.io/assets/coins/flux-flux.png">Flux (FLUX)</option>
+                                                                                        <option  value="HBAR*Hedera Hashgraph" data-image="https://www.bitswitch.io/assets/coins/hederahashgraph-hbar.png">Hedera Hashgraph (HBAR)</option>
+                                                                                        <option  value="HOT*Holo" data-image="https://www.bitswitch.io/assets/coins/holo-hot.png">Holo (HOT)</option>
+                                                                                        <option  value="IOST*IOST" data-image="https://www.bitswitch.io/assets/coins/iost-iost.png">IOST (IOST)</option>
+                                                                                        <option  value="XEM*NEM" data-image="https://www.bitswitch.io/assets/coins/nem-xem.png">NEM (XEM)</option>
+                                                                                        <option  value="CAKE*PancakeSwap" data-image="https://www.bitswitch.io/assets/coins/pancakeswap-cake.png">PancakeSwap (CAKE)</option>
+                                                                                        <option  value="DOT*Polkadot" data-image="https://www.bitswitch.io/assets/coins/polkadot-dot.png">Polkadot (DOT)</option>
+                                                                                        <option  value="QTUM*QTUM" data-image="https://www.bitswitch.io/assets/coins/qtum-qtum.png">QTUM (QTUM)</option>
+                                                                                        <option  value="THETA*THETA" data-image="https://www.bitswitch.io/assets/coins/theta-theta.png">THETA (THETA)</option>
+                                                                                        <option  value="RUNE*THORChain" data-image="https://www.bitswitch.io/assets/coins/thorchain-rune.png">THORChain (RUNE)</option>
+                                                                                        <option  value="XVG*Verge" data-image="https://www.bitswitch.io/assets/coins/verge-xvg.png">Verge (XVG)</option>
+                                                                                        <option  value="1INCH*1inch" data-image="https://www.bitswitch.io/assets/coins/1inch-1inch.png">1inch (1INCH)</option>
+                                                                                        <option  value="AAVE*Aave" data-image="https://www.bitswitch.io/assets/coins/aave-aave.png">Aave (AAVE)</option>
+                                                                                        <option  value="ANKR*Ankr" data-image="https://www.bitswitch.io/assets/coins/ankr-ankr.png">Ankr (ANKR)</option>
+                                                                                        <option  value="AVAX*Avalanche" data-image="https://www.bitswitch.io/assets/coins/avalanche-avax.png">Avalanche (AVAX)</option>
+                                                                                        <option  value="BAT*Basic Attention Token" data-image="https://www.bitswitch.io/assets/coins/basicattentiontoken-bat.png">Basic Attention Token (BAT)</option>
+                                                                                        <option  value="BCH*Bitcoin Cash" data-image="https://www.bitswitch.io/assets/coins/bitcoincash-bch.png">Bitcoin Cash (BCH)</option>
+                                                                                        <option  value="BSV*Bitcoin SV" data-image="https://www.bitswitch.io/assets/coins/bitcoinsv-bsv.png">Bitcoin SV (BSV)</option>
+                                                                                        <option  value="CRV*Curve" data-image="https://www.bitswitch.io/assets/coins/curve-crv.png">Curve (CRV)</option>
+                                                                                        <option  value="DAI*DAI" data-image="https://www.bitswitch.io/assets/coins/dai-dai.png">DAI (DAI)</option>
+                                                                                        <option  value="DASH*Dash" data-image="https://www.bitswitch.io/assets/coins/dash-dash.png">Dash (DASH)</option>
+                                                                                        <option  value="DCR*Decred" data-image="https://www.bitswitch.io/assets/coins/decred-dcr.png">Decred (DCR)</option>
+                                                                                        <option  value="DODO*DODO" data-image="https://www.bitswitch.io/assets/coins/dodo-dodo.png">DODO (DODO)</option>
+                                                                                        <option  value="ETC*Ethereum Classic" data-image="https://www.bitswitch.io/assets/coins/ethereumclassic-etc.png">Ethereum Classic (ETC)</option>
+                                                                                        <option  value="FTM*Fantom" data-image="https://www.bitswitch.io/assets/coins/fantom-ftm.png">Fantom (FTM)</option>
+                                                                                        <option  value="ONE*Harmony" data-image="https://www.bitswitch.io/assets/coins/harmony-one.png">Harmony (ONE)</option>
+                                                                                        <option  value="HNT*Helium" data-image="https://www.bitswitch.io/assets/coins/helium-hnt.png">Helium (HNT)</option>
+                                                                                        <option  value="JST*JUST" data-image="https://www.bitswitch.io/assets/coins/just-jst.png">JUST (JST)</option>
+                                                                                        <option  value="KSM*Kusama" data-image="https://www.bitswitch.io/assets/coins/kusama-ksm.png">Kusama (KSM)</option>
+                                                                                        <option  value="MKR*Maker" data-image="https://www.bitswitch.io/assets/coins/maker-mkr.png">Maker (MKR)</option>
+                                                                                        <option  value="MINA*Mina" data-image="https://www.bitswitch.io/assets/coins/mina-mina.png">Mina (MINA)</option>
+                                                                                        <option  value="XNO*Nano" data-image="https://www.bitswitch.io/assets/coins/nano-xno.png">Nano (XNO)</option>
+                                                                                        <option  value="NEXO*Nexo" data-image="https://www.bitswitch.io/assets/coins/nexo-nexo.png">Nexo (NEXO)</option>
+                                                                                        <option  value="PAXG*PAX Gold" data-image="https://www.bitswitch.io/assets/coins/paxgold-paxg.png">PAX Gold (PAXG)</option>
+                                                                                        <option  value="PIVX*PIVX" data-image="https://www.bitswitch.io/assets/coins/pivx-pivx.png">PIVX (PIVX)</option>
+                                                                                        <option  value="QNT*Quant" data-image="https://www.bitswitch.io/assets/coins/quant-qnt.png">Quant (QNT)</option>
+                                                                                        <option  value="SRM*Serum" data-image="https://www.bitswitch.io/assets/coins/serum-srm.png">Serum (SRM)</option>
+                                                                                        <option  value="SNT*Status" data-image="https://www.bitswitch.io/assets/coins/status-snt.png">Status (SNT)</option>
+                                                                                        <option  value="STEEM*Steem" data-image="https://www.bitswitch.io/assets/coins/steem-steem.png">Steem (STEEM)</option>
+                                                                                        <option  value="LUNC*Terra Classic" data-image="https://www.bitswitch.io/assets/coins/terraclassic-lunc.png">Terra Classic (LUNC)</option>
+                                                                                        <option  value="USTC*TerraClassicUSD" data-image="https://www.bitswitch.io/assets/coins/terraclassicusd-ustc.png">TerraClassicUSD (USTC)</option>
+                                                                                        <option  value="USDTPOLY*Tether Polygon" data-image="https://www.bitswitch.io/assets/coins/tether-usdt.png">Tether Polygon (USDT POLY)</option>
+                                                                                        <option  value="WAVES*Waves" data-image="https://www.bitswitch.io/assets/coins/waves-waves.png">Waves (WAVES)</option>
+                                                                                        <option  value="WBNB*Wrapped BNB" data-image="https://www.bitswitch.io/assets/coins/wrappedbnb-wbnb.png">Wrapped BNB (WBNB)</option>
+                                                                                        <option  value="XRP*XRP" data-image="https://www.bitswitch.io/assets/coins/xrp-xrp.png">XRP (XRP)</option>
+                                                                                        <option  value="ZIL*Zilliqa" data-image="https://www.bitswitch.io/assets/coins/zilliqa-zil.png">Zilliqa (ZIL)</option>
+                                                                                        <option  value="ARK*Ark" data-image="https://www.bitswitch.io/assets/coins/ark-ark.png">Ark (ARK)</option>
+                                                                                        <option  value="REP*Augur" data-image="https://www.bitswitch.io/assets/coins/augur-rep.png">Augur (REP)</option>
+                                                                                        <option  value="AXS*Axie Infinity" data-image="https://www.bitswitch.io/assets/coins/axieinfinity-axs.png">Axie Infinity (AXS)</option>
+                                                                                        <option  value="LINK*Chainlink" data-image="https://www.bitswitch.io/assets/coins/chainlink-link.png">Chainlink (LINK)</option>
+                                                                                        <option  value="MANA*Decentraland" data-image="https://www.bitswitch.io/assets/coins/decentraland-mana.png">Decentraland (MANA)</option>
+                                                                                        <option  value="DENT*Dent" data-image="https://www.bitswitch.io/assets/coins/dent-dent.png">Dent (DENT)</option>
+                                                                                        <option  value="DGB*DigiByte" data-image="https://www.bitswitch.io/assets/coins/digibyte-dgb.png">DigiByte (DGB)</option>
+                                                                                        <option  value="ENJ*Enjin Coin" data-image="https://www.bitswitch.io/assets/coins/enjincoin-enj.png">Enjin Coin (ENJ)</option>
+                                                                                        <option  value="FLOW*Flow" data-image="https://www.bitswitch.io/assets/coins/flow-flow.png">Flow (FLOW)</option>
+                                                                                        <option  value="GLM*Golem" data-image="https://www.bitswitch.io/assets/coins/golem-glm.png">Golem (GLM)</option>
+                                                                                        <option  value="ICP*Internet Computer" data-image="https://www.bitswitch.io/assets/coins/internetcomputer-icp.png">Internet Computer (ICP)</option>
+                                                                                        <option  value="KDA*Kadena" data-image="https://www.bitswitch.io/assets/coins/kadena-kda.png">Kadena (KDA)</option>
+                                                                                        <option  value="NEO*Neo" data-image="https://www.bitswitch.io/assets/coins/neo-neo.png">Neo (NEO)</option>
+                                                                                        <option  value="ONT*Ontology" data-image="https://www.bitswitch.io/assets/coins/ontology-ont.png">Ontology (ONT)</option>
+                                                                                        <option  value="OP*Optimism" data-image="https://www.bitswitch.io/assets/coins/optimism-op.png">Optimism (OP)</option>
+                                                                                        <option  value="OXT*Orchid" data-image="https://www.bitswitch.io/assets/coins/orchid-oxt.png">Orchid (OXT)</option>
+                                                                                        <option  value="RVN*Ravencoin" data-image="https://www.bitswitch.io/assets/coins/ravencoin-rvn.png">Ravencoin (RVN)</option>
+                                                                                        <option  value="SC*Siacoin" data-image="https://www.bitswitch.io/assets/coins/siacoin-sc.png">Siacoin (SC)</option>
+                                                                                        <option  value="STRAX*Stratis" data-image="https://www.bitswitch.io/assets/coins/stratis-strax.png">Stratis (STRAX)</option>
+                                                                                        <option  value="SUSHI*SushiSwap" data-image="https://www.bitswitch.io/assets/coins/sushiswap-sushi.png">SushiSwap (SUSHI)</option>
+                                                                                        <option  value="SAND*The Sandbox" data-image="https://www.bitswitch.io/assets/coins/thesandbox-sand.png">The Sandbox (SAND)</option>
+                                                                                        <option  value="TOMO*TomoChain" data-image="https://www.bitswitch.io/assets/coins/tomochain-tomo.png">TomoChain (TOMO)</option>
+                                                                                        <option  value="TUSD*True USD" data-image="https://www.bitswitch.io/assets/coins/trueusd-tusd.png">True USD (TUSD)</option>
+                                                                                        <option  value="VTHO*VeThor Token" data-image="https://www.bitswitch.io/assets/coins/vethortoken-vtho.png">VeThor Token (VTHO)</option>
+                                                                                        <option  value="BTG*Bitcoin Gold" data-image="https://www.bitswitch.io/assets/coins/bitcoingold-btg.png">Bitcoin Gold (BTG)</option>
+                                                                                        <option  value="DIA*DIA" data-image="https://www.bitswitch.io/assets/coins/dia-dia.png">DIA (DIA)</option>
+                                                                                        <option  value="EGLD*Elrond" data-image="https://www.bitswitch.io/assets/coins/elrond-egld.png">Elrond (EGLD)</option>
+                                                                                        <option  value="FIL*Filecoin" data-image="https://www.bitswitch.io/assets/coins/filecoin-fil.png">Filecoin (FIL)</option>
+                                                                                        <option  value="LSK*Lisk" data-image="https://www.bitswitch.io/assets/coins/lisk-lsk.png">Lisk (LSK)</option>
+                                                                                        <option  value="LRC*Loopring" data-image="https://www.bitswitch.io/assets/coins/loopring-lrc.png">Loopring (LRC)</option>
+                                                                                        <option  value="SYS*Syscoin" data-image="https://www.bitswitch.io/assets/coins/syscoin-sys.png">Syscoin (SYS)</option>
+                                                                                        <option  value="VET*VeChain" data-image="https://www.bitswitch.io/assets/coins/vechain-vet.png">VeChain (VET)</option>
+                                                                                        <option  value="IDEX*IDEX" data-image="https://www.bitswitch.io/assets/coins/idex-idex.png">IDEX (IDEX)</option>
+                                                                                    </select>
+                                          </div>
+                                      </p>
+                                    </div>
+
+                                </div>
+                            </nav>
+                            <p class="buttons is-right">
+                                    <button id="swap_pairs" class="button is-white icon is-medium">
+                                      <i class="fa-solid fa-arrows-up-down"></i>
+                                    </button>
+                            </p>
+                            <nav class="level">
+                                <div class="level-item">
+                                    <div class="field has-addons">
+
+                                <div id="to_amount_ctl">
+                                      <p class="control">
+                                        <input id="to_amount" class="input has-text-right" type="text" placeholder="You get" readonly  autocomplete="off">
+                                      </p>
+                                </div>
+                                <div id="to_amount_ctl2" style="display: none">
+                                      <p class="control is-loading">
+                                        <input class="input has-text-right" type="text" placeholder="You get" readonly>
+                                      </p>
+                                </div>
+                                      <p class="control">
+                                          <div class="select">
+                                            <select id="to_coin" name="to_coin" data-placeholder="To">
+                                            <option value="">Select</option>
+                                                                                            <option  value="BTC*Bitcoin" data-image="https://www.bitswitch.io/assets/coins/bitcoin-btc.png">Bitcoin (BTC)</option>
+                                                                                            <option selected value="ETH*Ethereum" data-image="https://www.bitswitch.io/assets/coins/ethereum-eth.png">Ethereum (ETH)</option>
+                                                                                            <option  value="USDTERC20*Tether ERC20" data-image="https://www.bitswitch.io/assets/coins/tether-usdt.png">Tether ERC20 (USDT ERC20)</option>
+                                                                                            <option  value="EOS*EOS" data-image="https://www.bitswitch.io/assets/coins/eos-eos.png">EOS (EOS)</option>
+                                                                                            <option  value="USDTTRC20*Tether TRC20" data-image="https://www.bitswitch.io/assets/coins/tether-usdt.png">Tether TRC20 (USDT TRC20)</option>
+                                                                                            <option  value="SHIB*SHIBA INU" data-image="https://www.bitswitch.io/assets/coins/shibainu-shib.png">SHIBA INU (SHIB)</option>
+                                                                                            <option  value="DOGE*Dogecoin" data-image="https://www.bitswitch.io/assets/coins/dogecoin-doge.png">Dogecoin (DOGE)</option>
+                                                                                            <option  value="XMR*Monero" data-image="https://www.bitswitch.io/assets/coins/monero-xmr.png">Monero (XMR)</option>
+                                                                                            <option  value="TRX*TRON" data-image="https://www.bitswitch.io/assets/coins/tron-trx.png">TRON (TRX)</option>
+                                                                                            <option  value="HT*Huobi Token" data-image="https://www.bitswitch.io/assets/coins/huobitoken-ht.png">Huobi Token (HT)</option>
+                                                                                            <option  value="USDC*USD Coin" data-image="https://www.bitswitch.io/assets/coins/usdcoin-usdc.png">USD Coin (USDC)</option>
+                                                                                            <option  value="ZRX*0x" data-image="https://www.bitswitch.io/assets/coins/0x-zrx.png">0x (ZRX)</option>
+                                                                                            <option  value="AKITA*Akita Inu" data-image="https://www.bitswitch.io/assets/coins/akitainu-akita.png">Akita Inu (AKITA)</option>
+                                                                                            <option  value="IOTA*IOTA" data-image="https://www.bitswitch.io/assets/coins/iota-iota.png">IOTA (IOTA)</option>
+                                                                                            <option  value="LTC*Litecoin" data-image="https://www.bitswitch.io/assets/coins/litecoin-ltc.png">Litecoin (LTC)</option>
+                                                                                            <option  value="UNI*Uniswap" data-image="https://www.bitswitch.io/assets/coins/uniswap-uni.png">Uniswap (UNI)</option>
+                                                                                            <option  value="ALGO*Algorand" data-image="https://www.bitswitch.io/assets/coins/algorand-algo.png">Algorand (ALGO)</option>
+                                                                                            <option  value="SCRT*Secret" data-image="https://www.bitswitch.io/assets/coins/secret-scrt.png">Secret (SCRT)</option>
+                                                                                            <option  value="WBTC*Wrapped Bitcoin" data-image="https://www.bitswitch.io/assets/coins/wrappedbitcoin-wbtc.png">Wrapped Bitcoin (WBTC)</option>
+                                                                                            <option  value="YFI*yearn.finance" data-image="https://www.bitswitch.io/assets/coins/yearn.finance-yfi.png">yearn.finance (YFI)</option>
+                                                                                            <option  value="CHZ*Chiliz" data-image="https://www.bitswitch.io/assets/coins/chiliz-chz.png">Chiliz (CHZ)</option>
+                                                                                            <option  value="ATOM*Cosmos" data-image="https://www.bitswitch.io/assets/coins/cosmos-atom.png">Cosmos (ATOM)</option>
+                                                                                            <option  value="ELON*Dogelon Mars" data-image="https://www.bitswitch.io/assets/coins/dogelonmars-elon.png">Dogelon Mars (ELON)</option>
+                                                                                            <option  value="GODS*Gods Unchained" data-image="https://www.bitswitch.io/assets/coins/godsunchained-gods.png">Gods Unchained (GODS)</option>
+                                                                                            <option  value="KMD*Komodo" data-image="https://www.bitswitch.io/assets/coins/komodo-kmd.png">Komodo (KMD)</option>
+                                                                                            <option  value="MATIC*Polygon" data-image="https://www.bitswitch.io/assets/coins/polygon-matic.png">Polygon (MATIC)</option>
+                                                                                            <option  value="APE*ApeCoin" data-image="https://www.bitswitch.io/assets/coins/apecoin-ape.png">ApeCoin (APE)</option>
+                                                                                            <option  value="BNB*Binance Coin" data-image="https://www.bitswitch.io/assets/coins/binancecoin-bnb.png">Binance Coin (BNB)</option>
+                                                                                            <option  value="SOL*Solana" data-image="https://www.bitswitch.io/assets/coins/solana-sol.png">Solana (SOL)</option>
+                                                                                            <option  value="XLM*Stellar" data-image="https://www.bitswitch.io/assets/coins/stellar-xlm.png">Stellar (XLM)</option>
+                                                                                            <option  value="LUNA*Terra 2.0" data-image="https://www.bitswitch.io/assets/coins/terra2.0-luna.png">Terra 2.0 (LUNA)</option>
+                                                                                            <option  value="LEO*UNUS SED LEO" data-image="https://www.bitswitch.io/assets/coins/unussedleo-leo.png">UNUS SED LEO (LEO)</option>
+                                                                                            <option  value="USDCPOLY*USD Coin Polygon" data-image="https://www.bitswitch.io/assets/coins/usdcoin-usdc.png">USD Coin Polygon (USDC POLY)</option>
+                                                                                            <option  value="ZEC*Zcash" data-image="https://www.bitswitch.io/assets/coins/zcash-zec.png">Zcash (ZEC)</option>
+                                                                                            <option  value="BUSD*Binance USD" data-image="https://www.bitswitch.io/assets/coins/binanceusd-busd.png">Binance USD (BUSD)</option>
+                                                                                            <option  value="ADA*Cardano" data-image="https://www.bitswitch.io/assets/coins/cardano-ada.png">Cardano (ADA)</option>
+                                                                                            <option  value="COMP*Compound" data-image="https://www.bitswitch.io/assets/coins/compound-comp.png">Compound (COMP)</option>
+                                                                                            <option  value="DYDX*dYdX" data-image="https://www.bitswitch.io/assets/coins/dydx-dydx.png">dYdX (DYDX)</option>
+                                                                                            <option  value="ENS*Ethereum Name Service" data-image="https://www.bitswitch.io/assets/coins/ethereumnameservice-ens.png">Ethereum Name Service (ENS)</option>
+                                                                                            <option  value="FLUX*Flux" data-image="https://www.bitswitch.io/assets/coins/flux-flux.png">Flux (FLUX)</option>
+                                                                                            <option  value="HBAR*Hedera Hashgraph" data-image="https://www.bitswitch.io/assets/coins/hederahashgraph-hbar.png">Hedera Hashgraph (HBAR)</option>
+                                                                                            <option  value="HOT*Holo" data-image="https://www.bitswitch.io/assets/coins/holo-hot.png">Holo (HOT)</option>
+                                                                                            <option  value="IOST*IOST" data-image="https://www.bitswitch.io/assets/coins/iost-iost.png">IOST (IOST)</option>
+                                                                                            <option  value="XEM*NEM" data-image="https://www.bitswitch.io/assets/coins/nem-xem.png">NEM (XEM)</option>
+                                                                                            <option  value="CAKE*PancakeSwap" data-image="https://www.bitswitch.io/assets/coins/pancakeswap-cake.png">PancakeSwap (CAKE)</option>
+                                                                                            <option  value="DOT*Polkadot" data-image="https://www.bitswitch.io/assets/coins/polkadot-dot.png">Polkadot (DOT)</option>
+                                                                                            <option  value="QTUM*QTUM" data-image="https://www.bitswitch.io/assets/coins/qtum-qtum.png">QTUM (QTUM)</option>
+                                                                                            <option  value="THETA*THETA" data-image="https://www.bitswitch.io/assets/coins/theta-theta.png">THETA (THETA)</option>
+                                                                                            <option  value="RUNE*THORChain" data-image="https://www.bitswitch.io/assets/coins/thorchain-rune.png">THORChain (RUNE)</option>
+                                                                                            <option  value="XVG*Verge" data-image="https://www.bitswitch.io/assets/coins/verge-xvg.png">Verge (XVG)</option>
+                                                                                            <option  value="1INCH*1inch" data-image="https://www.bitswitch.io/assets/coins/1inch-1inch.png">1inch (1INCH)</option>
+                                                                                            <option  value="AAVE*Aave" data-image="https://www.bitswitch.io/assets/coins/aave-aave.png">Aave (AAVE)</option>
+                                                                                            <option  value="ANKR*Ankr" data-image="https://www.bitswitch.io/assets/coins/ankr-ankr.png">Ankr (ANKR)</option>
+                                                                                            <option  value="AVAX*Avalanche" data-image="https://www.bitswitch.io/assets/coins/avalanche-avax.png">Avalanche (AVAX)</option>
+                                                                                            <option  value="BAT*Basic Attention Token" data-image="https://www.bitswitch.io/assets/coins/basicattentiontoken-bat.png">Basic Attention Token (BAT)</option>
+                                                                                            <option  value="BCH*Bitcoin Cash" data-image="https://www.bitswitch.io/assets/coins/bitcoincash-bch.png">Bitcoin Cash (BCH)</option>
+                                                                                            <option  value="BSV*Bitcoin SV" data-image="https://www.bitswitch.io/assets/coins/bitcoinsv-bsv.png">Bitcoin SV (BSV)</option>
+                                                                                            <option  value="CRV*Curve" data-image="https://www.bitswitch.io/assets/coins/curve-crv.png">Curve (CRV)</option>
+                                                                                            <option  value="DAI*DAI" data-image="https://www.bitswitch.io/assets/coins/dai-dai.png">DAI (DAI)</option>
+                                                                                            <option  value="DASH*Dash" data-image="https://www.bitswitch.io/assets/coins/dash-dash.png">Dash (DASH)</option>
+                                                                                            <option  value="DCR*Decred" data-image="https://www.bitswitch.io/assets/coins/decred-dcr.png">Decred (DCR)</option>
+                                                                                            <option  value="DODO*DODO" data-image="https://www.bitswitch.io/assets/coins/dodo-dodo.png">DODO (DODO)</option>
+                                                                                            <option  value="ETC*Ethereum Classic" data-image="https://www.bitswitch.io/assets/coins/ethereumclassic-etc.png">Ethereum Classic (ETC)</option>
+                                                                                            <option  value="FTM*Fantom" data-image="https://www.bitswitch.io/assets/coins/fantom-ftm.png">Fantom (FTM)</option>
+                                                                                            <option  value="ONE*Harmony" data-image="https://www.bitswitch.io/assets/coins/harmony-one.png">Harmony (ONE)</option>
+                                                                                            <option  value="HNT*Helium" data-image="https://www.bitswitch.io/assets/coins/helium-hnt.png">Helium (HNT)</option>
+                                                                                            <option  value="JST*JUST" data-image="https://www.bitswitch.io/assets/coins/just-jst.png">JUST (JST)</option>
+                                                                                            <option  value="KSM*Kusama" data-image="https://www.bitswitch.io/assets/coins/kusama-ksm.png">Kusama (KSM)</option>
+                                                                                            <option  value="MKR*Maker" data-image="https://www.bitswitch.io/assets/coins/maker-mkr.png">Maker (MKR)</option>
+                                                                                            <option  value="MINA*Mina" data-image="https://www.bitswitch.io/assets/coins/mina-mina.png">Mina (MINA)</option>
+                                                                                            <option  value="XNO*Nano" data-image="https://www.bitswitch.io/assets/coins/nano-xno.png">Nano (XNO)</option>
+                                                                                            <option  value="NEXO*Nexo" data-image="https://www.bitswitch.io/assets/coins/nexo-nexo.png">Nexo (NEXO)</option>
+                                                                                            <option  value="PAXG*PAX Gold" data-image="https://www.bitswitch.io/assets/coins/paxgold-paxg.png">PAX Gold (PAXG)</option>
+                                                                                            <option  value="PIVX*PIVX" data-image="https://www.bitswitch.io/assets/coins/pivx-pivx.png">PIVX (PIVX)</option>
+                                                                                            <option  value="QNT*Quant" data-image="https://www.bitswitch.io/assets/coins/quant-qnt.png">Quant (QNT)</option>
+                                                                                            <option  value="SRM*Serum" data-image="https://www.bitswitch.io/assets/coins/serum-srm.png">Serum (SRM)</option>
+                                                                                            <option  value="SNT*Status" data-image="https://www.bitswitch.io/assets/coins/status-snt.png">Status (SNT)</option>
+                                                                                            <option  value="STEEM*Steem" data-image="https://www.bitswitch.io/assets/coins/steem-steem.png">Steem (STEEM)</option>
+                                                                                            <option  value="LUNC*Terra Classic" data-image="https://www.bitswitch.io/assets/coins/terraclassic-lunc.png">Terra Classic (LUNC)</option>
+                                                                                            <option  value="USTC*TerraClassicUSD" data-image="https://www.bitswitch.io/assets/coins/terraclassicusd-ustc.png">TerraClassicUSD (USTC)</option>
+                                                                                            <option  value="USDTPOLY*Tether Polygon" data-image="https://www.bitswitch.io/assets/coins/tether-usdt.png">Tether Polygon (USDT POLY)</option>
+                                                                                            <option  value="WAVES*Waves" data-image="https://www.bitswitch.io/assets/coins/waves-waves.png">Waves (WAVES)</option>
+                                                                                            <option  value="WBNB*Wrapped BNB" data-image="https://www.bitswitch.io/assets/coins/wrappedbnb-wbnb.png">Wrapped BNB (WBNB)</option>
+                                                                                            <option  value="XRP*XRP" data-image="https://www.bitswitch.io/assets/coins/xrp-xrp.png">XRP (XRP)</option>
+                                                                                            <option  value="ZIL*Zilliqa" data-image="https://www.bitswitch.io/assets/coins/zilliqa-zil.png">Zilliqa (ZIL)</option>
+                                                                                            <option  value="ARK*Ark" data-image="https://www.bitswitch.io/assets/coins/ark-ark.png">Ark (ARK)</option>
+                                                                                            <option  value="REP*Augur" data-image="https://www.bitswitch.io/assets/coins/augur-rep.png">Augur (REP)</option>
+                                                                                            <option  value="AXS*Axie Infinity" data-image="https://www.bitswitch.io/assets/coins/axieinfinity-axs.png">Axie Infinity (AXS)</option>
+                                                                                            <option  value="LINK*Chainlink" data-image="https://www.bitswitch.io/assets/coins/chainlink-link.png">Chainlink (LINK)</option>
+                                                                                            <option  value="MANA*Decentraland" data-image="https://www.bitswitch.io/assets/coins/decentraland-mana.png">Decentraland (MANA)</option>
+                                                                                            <option  value="DENT*Dent" data-image="https://www.bitswitch.io/assets/coins/dent-dent.png">Dent (DENT)</option>
+                                                                                            <option  value="DGB*DigiByte" data-image="https://www.bitswitch.io/assets/coins/digibyte-dgb.png">DigiByte (DGB)</option>
+                                                                                            <option  value="ENJ*Enjin Coin" data-image="https://www.bitswitch.io/assets/coins/enjincoin-enj.png">Enjin Coin (ENJ)</option>
+                                                                                            <option  value="FLOW*Flow" data-image="https://www.bitswitch.io/assets/coins/flow-flow.png">Flow (FLOW)</option>
+                                                                                            <option  value="GLM*Golem" data-image="https://www.bitswitch.io/assets/coins/golem-glm.png">Golem (GLM)</option>
+                                                                                            <option  value="ICP*Internet Computer" data-image="https://www.bitswitch.io/assets/coins/internetcomputer-icp.png">Internet Computer (ICP)</option>
+                                                                                            <option  value="KDA*Kadena" data-image="https://www.bitswitch.io/assets/coins/kadena-kda.png">Kadena (KDA)</option>
+                                                                                            <option  value="NEO*Neo" data-image="https://www.bitswitch.io/assets/coins/neo-neo.png">Neo (NEO)</option>
+                                                                                            <option  value="ONT*Ontology" data-image="https://www.bitswitch.io/assets/coins/ontology-ont.png">Ontology (ONT)</option>
+                                                                                            <option  value="OP*Optimism" data-image="https://www.bitswitch.io/assets/coins/optimism-op.png">Optimism (OP)</option>
+                                                                                            <option  value="OXT*Orchid" data-image="https://www.bitswitch.io/assets/coins/orchid-oxt.png">Orchid (OXT)</option>
+                                                                                            <option  value="RVN*Ravencoin" data-image="https://www.bitswitch.io/assets/coins/ravencoin-rvn.png">Ravencoin (RVN)</option>
+                                                                                            <option  value="SC*Siacoin" data-image="https://www.bitswitch.io/assets/coins/siacoin-sc.png">Siacoin (SC)</option>
+                                                                                            <option  value="STRAX*Stratis" data-image="https://www.bitswitch.io/assets/coins/stratis-strax.png">Stratis (STRAX)</option>
+                                                                                            <option  value="SUSHI*SushiSwap" data-image="https://www.bitswitch.io/assets/coins/sushiswap-sushi.png">SushiSwap (SUSHI)</option>
+                                                                                            <option  value="SAND*The Sandbox" data-image="https://www.bitswitch.io/assets/coins/thesandbox-sand.png">The Sandbox (SAND)</option>
+                                                                                            <option  value="TOMO*TomoChain" data-image="https://www.bitswitch.io/assets/coins/tomochain-tomo.png">TomoChain (TOMO)</option>
+                                                                                            <option  value="TUSD*True USD" data-image="https://www.bitswitch.io/assets/coins/trueusd-tusd.png">True USD (TUSD)</option>
+                                                                                            <option  value="VTHO*VeThor Token" data-image="https://www.bitswitch.io/assets/coins/vethortoken-vtho.png">VeThor Token (VTHO)</option>
+                                                                                            <option  value="BTG*Bitcoin Gold" data-image="https://www.bitswitch.io/assets/coins/bitcoingold-btg.png">Bitcoin Gold (BTG)</option>
+                                                                                            <option  value="DIA*DIA" data-image="https://www.bitswitch.io/assets/coins/dia-dia.png">DIA (DIA)</option>
+                                                                                            <option  value="EGLD*Elrond" data-image="https://www.bitswitch.io/assets/coins/elrond-egld.png">Elrond (EGLD)</option>
+                                                                                            <option  value="FIL*Filecoin" data-image="https://www.bitswitch.io/assets/coins/filecoin-fil.png">Filecoin (FIL)</option>
+                                                                                            <option  value="LSK*Lisk" data-image="https://www.bitswitch.io/assets/coins/lisk-lsk.png">Lisk (LSK)</option>
+                                                                                            <option  value="LRC*Loopring" data-image="https://www.bitswitch.io/assets/coins/loopring-lrc.png">Loopring (LRC)</option>
+                                                                                            <option  value="SYS*Syscoin" data-image="https://www.bitswitch.io/assets/coins/syscoin-sys.png">Syscoin (SYS)</option>
+                                                                                            <option  value="VET*VeChain" data-image="https://www.bitswitch.io/assets/coins/vechain-vet.png">VeChain (VET)</option>
+                                                                                            <option  value="IDEX*IDEX" data-image="https://www.bitswitch.io/assets/coins/idex-idex.png">IDEX (IDEX)</option>
+                                                                                            </select>
+                                          </div>
+                                      </p>
+                                </div>
+                                    </div>
+                            </nav>
+                            <p id="notavail" style="display: none"  class="control notification swap_tips is-danger"></p>
+                            <div id="memo" class="control" style="display: none">
+                                        <small id="memotxt">Memo:</small>
+                                        <input id="coin_memo" class="input is-fullwidth" type="text" placeholder="Memo">
+                            </div>
+                            <div class="control">
+                                        <small>Enter <span class="to_coin_txt"></span> address:</small>
+                                        <input id="coin_address" class="input is-fullwidth" type="text" placeholder="Your recipient's wallet address">
+                            </div>
+                            <div class="control notification swap_tips is-warning">
+                            <p id="warning" style="display: none" ></p>
+                            <p id="warning2" style="display: none"></p>
+                            </div>
+                            <div class="control mt-2">
+                                        <button id="swap_1" class="button is-large is-fullwidth is-info">
+                                          Exchange
+                                        </button>
+                            </div>
+                            <p class="notification is-info is-light swap_tips">
+                            Exchange rate is float. Amount you get may change due to market volatility.
+                            </p> 
+
+
+                </div>
+            </div>
+
+                
+                <div class="column"></div>
+</div>
+</section>
+
+<section class="section">
+<div class="columns">
+    <div class="column"></div>
+
+                <div class="column">
+
+    <h1 class="title">
+		Last Exchanges
+	</h1>
+	<hr>
+
+	 
+        <p><img src='https://www.bitswitch.io/assets/coins/monero-xmr.png' class="img-txt"> 1.72 XMR to <img src='https://www.bitswitch.io/assets/coins/bitcoin-btc.png' class="img-txt"> 0.0125338  BTC</p>
+        <hr>
+            
+	 
+        <p><img src='https://www.bitswitch.io/assets/coins/ethereum-eth.png' class="img-txt"> 1.41 ETH to <img src='https://www.bitswitch.io/assets/coins/wrappedbitcoin-wbtc.png' class="img-txt"> 0.09357569  WBTC</p>
+        <hr>
+            
+	 
+        <p><img src='https://www.bitswitch.io/assets/coins/wrappedbitcoin-wbtc.png' class="img-txt"> 0.0758 WBTC to <img src='https://www.bitswitch.io/assets/coins/ethereum-eth.png' class="img-txt"> 1.06843763  ETH</p>
+        <hr>
+            
+	 
+        <p><img src='https://www.bitswitch.io/assets/coins/wrappedbitcoin-wbtc.png' class="img-txt"> 0.0063 WBTC to <img src='https://www.bitswitch.io/assets/coins/ethereum-eth.png' class="img-txt"> 0.08182513  ETH</p>
+        <hr>
+            
+	 
+        <p><img src='https://www.bitswitch.io/assets/coins/wrappedbitcoin-wbtc.png' class="img-txt"> 0.0069 WBTC to <img src='https://www.bitswitch.io/assets/coins/ethereum-eth.png' class="img-txt"> 0.09031748  ETH</p>
+        <hr>
+            
+	 
+        <p><img src='https://www.bitswitch.io/assets/coins/bitcoin-btc.png' class="img-txt"> 0.0006 BTC to <img src='https://www.bitswitch.io/assets/coins/ethereum-eth.png' class="img-txt"> 0.007379  ETH</p>
+        <hr>
+            
+	 
+        <p><img src='https://www.bitswitch.io/assets/coins/ethereum-eth.png' class="img-txt"> 0.005 ETH to <img src='https://www.bitswitch.io/assets/coins/bitcoin-btc.png' class="img-txt"> 0.0002737  BTC</p>
+        <hr>
+            
+	 
+        <p><img src='https://www.bitswitch.io/assets/coins/bitcoin-btc.png' class="img-txt"> 0.0005 BTC to <img src='https://www.bitswitch.io/assets/coins/ethereum-eth.png' class="img-txt"> 0.0060777  ETH</p>
+        <hr>
+            
+	
+
+                </div>
+
+                
+                <div class="column"></div>
+</div>
+</section>
+
+<div class="modal" id="modal1">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title" id="modal1title">Modal title</p>
+      <button class="delete modalclose" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body" id="modal1txt">
+    </section>
+    <footer class="modal-card-foot">
+            <button class="button is-info modalclose" data-modalid="modal1">OK</button>
+    </footer>
+  </div>
+</div>
+
+<div id="waiter" style="display: none"><progress class="progress is-large is-info" max="100">50%</progress></div>
+
+<script>
+jQuery(document).ready(function ($) {
+    
+	$('#from_amount').focus();
+	
+		 $("#from_coin").trigger("change");		 $("#to_coin").trigger("change");	
+});
+</script>
+
+</div>
+<footer class="footer has-text-white has-background-link">
+  <div class="has-text-left ml-3 mt-3 is-size-7">
+    <div class="columns">
+        <div class="column">
+          <ul>
+              <li><a href="https://www.bitswitch.io/" class="has-text-white">Home</a></li>
+              <li><a href="https://www.bitswitch.io/support" class="has-text-white">Support</a></li>
+              <li><a href="https://www.bitswitch.io/coins" class="has-text-white">Coins List</a></li>
+              <li><a href="https://www.bitswitch.io/terms" class="has-text-white">Terms and Conditions</a></li>
+          </ul>
+        </div>
+        <div class="column">
+          <ul>
+            <li><a href="https://www.bitswitch.io/exchange-xmr-to-btc" class="has-text-white">Exchange XMR to BTC</a></li><li><a href="https://www.bitswitch.io/exchange-eth-to-wbtc" class="has-text-white">Exchange ETH to WBTC</a></li><li><a href="https://www.bitswitch.io/exchange-wbtc-to-eth" class="has-text-white">Exchange WBTC to ETH</a></li><li><a href="https://www.bitswitch.io/exchange-wbtc-to-eth" class="has-text-white">Exchange WBTC to ETH</a></li>
+          </ul>
+        </div>
+        <div class="column">
+        </div>
+        <div class="column">
+            <div class="has-text-right">
+              <small>&copy 2022 BitSwitch.io, All rights reserved</small>
+            </div>
+        </div>
+
+    </div>
+  </div>
+</footer>
+<script>start_calc('0083563c71b509d7bdee6a0e956e9e74');</script></body>
+</html>
+
+<!--
+Powered by: bitswitch.io
+Copyright © 2022 All rights reserved
+-->
